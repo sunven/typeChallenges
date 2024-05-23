@@ -13,4 +13,11 @@ type cases = [
 ]
 
 // ============= Your Code Here =============
-type Trim<S extends string> = S extends `${' '}|'\n'|'\t'${infer R}` ? Trim<R> : S
+// type Trim<S extends string> = S extends `${' ' | '\n' | '\t'}${infer R}`
+//   ? Trim<R>
+//   : S extends `${infer L}${' ' | '\n' | '\t'}`
+//   ? Trim<L>
+//   : S
+
+type WhiteSpace = ' ' | '\n' | '\t'
+type Trim<S> = S extends `${WhiteSpace}${infer T}` | `${infer T}${WhiteSpace}` ? Trim<T> : S
