@@ -53,6 +53,7 @@ type MyParameters<T extends (...args: any[]) => any> = T extends (...args: infer
 - 获取方法参数 `...args: infer P`
 - 元组 数组 转 来联合类型 T[number]
 - 捏造一个类型 T，默认值 T = {}
+- 字符串转数组
 
 ## any never unknow
 
